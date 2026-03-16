@@ -33,8 +33,8 @@ function navigateTo(pageId) {
     if (next) next.classList.add('active');
     currentPage = pageId;
 
-    // Update nav dots
-    document.querySelectorAll('.dot').forEach(d => d.classList.toggle('active', d.dataset.page === pageId));
+    // Update scroll arrow
+    updateArrow();
 
     // Scroll next page to top
     if (next) next.scrollTop = 0;
@@ -106,6 +106,27 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMenu();
 });
 
+// ---- SCROLL ARROW ----
+const pageOrder = ['home', 'about', 'portfolio', 'contact'];
+const scrollArrow = document.getElementById('scroll-arrow');
+
+function updateArrow() {
+  if (!scrollArrow) return;
+  const idx = pageOrder.indexOf(currentPage);
+  if (idx >= pageOrder.length - 1) {
+    scrollArrow.classList.add('hidden');
+  } else {
+    scrollArrow.classList.remove('hidden');
+  }
+}
+
+if (scrollArrow) {
+  scrollArrow.addEventListener('click', () => {
+    const idx = pageOrder.indexOf(currentPage);
+    if (idx < pageOrder.length - 1) navigateTo(pageOrder[idx + 1]);
+  });
+}
+
 // ---- SKILL BARS (About page) ----
 let skillsBarsAnimated = false;
 function animateSkillBars() {
@@ -175,7 +196,6 @@ document.addEventListener('mousemove', e => {
 });
 
 // ---- KEYBOARD NAV ----
-const pageOrder = ['home', 'about', 'portfolio', 'contact'];
 document.addEventListener('keydown', e => {
   if (menuOpen) return;
   const idx = pageOrder.indexOf(currentPage);
@@ -188,7 +208,6 @@ document.addEventListener('keydown', e => {
 
 // ---- INIT ----
 (function init() {
-  // Set home as active
   document.getElementById('page-home').classList.add('active');
-  document.querySelector('.dot[data-page="home"]').classList.add('active');
+  updateArrow();
 })();

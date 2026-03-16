@@ -104,7 +104,7 @@
                             <div class="h-ring r3"></div>
                         </div>
                         <div class="hero-profile">
-                            <img src="avatar_cartoon.png" alt="Jeffy Brailin" class="hero-avatar" onerror="this.style.display='none';this.parentElement.querySelector('.hero-initials').style.display='flex'">
+                            <img src="profile.jpg" alt="Jeffy Brailin" class="hero-avatar" onerror="this.style.display='none';this.parentElement.querySelector('.hero-initials').style.display='flex'">
                             <div class="hero-initials" style="display:none">JB</div>
                         </div>
                         <div class="hero-floating-chips">
@@ -183,9 +183,7 @@
                         <p class="about-desc">
                             My work spans <strong>multi-agent LLM pipelines</strong>, <strong>risk-aware ML systems</strong>, quantum algorithms (BB84, Grover's, QAOA), and full-stack engineering — always with an eye toward production-level quality.
                         </p>
-                        <p class="about-desc">
-                            I'm targeting roles at <strong>JP Morgan, Barclays</strong>, and top product companies where I can push the frontier of applied AI and quantum systems.
-                        </p>
+
                         <div class="about-exp">
                             <div class="exp-item">
                                 <span class="exp-tag">Experience</span>
@@ -430,13 +428,12 @@
 
 </main>
 
-<!-- Page indicator dots -->
-<div class="page-dots" id="page-dots">
-    <button class="dot active" data-page="home" title="Home"></button>
-    <button class="dot" data-page="about" title="About"></button>
-    <button class="dot" data-page="portfolio" title="Portfolio"></button>
-    <button class="dot" data-page="contact" title="Contact"></button>
-</div>
+<!-- Scroll down arrow -->
+<button class="scroll-arrow" id="scroll-arrow" title="Next Section" aria-label="Scroll to next section">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+    </svg>
+</button>
 
 <script src="main.js"></script>
 </body>
