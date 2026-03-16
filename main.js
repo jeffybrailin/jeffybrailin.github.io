@@ -36,6 +36,9 @@ function navigateTo(pageId) {
     // Update scroll arrow
     updateArrow();
 
+    // Update nav dots
+    document.querySelectorAll('.dot').forEach(d => d.classList.toggle('active', d.dataset.page === pageId));
+
     // Scroll next page to top
     if (next) next.scrollTop = 0;
 
